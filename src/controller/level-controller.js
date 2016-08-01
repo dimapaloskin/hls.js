@@ -250,7 +250,7 @@ class LevelController extends EventHandler {
       let newDetails = data.details;
       // if current playlist is a live playlist, arm a timer to reload it
       if (newDetails.live) {
-        let reloadInterval = 1000*( newDetails.averagetargetduration ? newDetails.averagetargetduration : newDetails.targetduration),
+        let reloadInterval = 1000*( newDetails.targetduration ? newDetails.targetduration : newDetails.averagetargetduration),
             curLevel = this._levels[data.level],
             curDetails = curLevel.details;
         if (curDetails && newDetails.endSN === curDetails.endSN) {
@@ -297,4 +297,3 @@ class LevelController extends EventHandler {
 }
 
 export default LevelController;
-
